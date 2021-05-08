@@ -1,5 +1,5 @@
-import CrossSVG from "../public/images/cancel.svg";
-import TrashSVG from "../public/images/delete.svg";
+import CrossSVG from "@/public/images/cancel.svg";
+import TrashSVG from "@/public/images/delete.svg";
 import Image from "next/image";
 
 import styles from "@/styles/components/Cart.module.scss";
@@ -7,42 +7,42 @@ import styles from "@/styles/components/Cart.module.scss";
 export default function Cart() {
   return (
     <aside className={styles.cart}>
-      <CrossSVG />
-      <div className={styles.top}>
+      <CrossSVG className={styles.cross} />
+      <div className={styles.header}>
         <h2>Panier</h2>
         <TrashSVG />
       </div>
       <ul>
-        <li>
+        <li className={styles.product}>
           <div className="left">
             <Image
               src="/images/cactus.jpg"
               alt="cactus"
-              width={30}
-              height={30}
+              width={50}
+              height={50}
             />
           </div>
-          <div className="right">
+          <div className={styles.right}>
             <span className="name">Cactus</span>
             <span className="price">15€</span>
           </div>
         </li>
-        <li>
+        <li className={styles.product}>
           <div className="left">
             <Image
               src="/images/cactus.jpg"
               alt="cactus"
-              width={30}
-              height={30}
+              width={50}
+              height={50}
             />
           </div>
-          <div className="right">
+          <div className={styles.right}>
             <span className="name">Cactus</span>
             <span className="price">15€</span>
           </div>
         </li>
       </ul>
-      <div className="total">
+      <div className={styles.total}>
         Total : <span></span>
       </div>
     </aside>

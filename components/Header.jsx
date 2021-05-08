@@ -1,7 +1,7 @@
 import Image from "next/image";
 import styles from "@/styles/components/Header.module.scss";
 
-import CartSVG from "../public/images/shopping-cart.svg";
+import CartSVG from "@/public/images/shopping-cart.svg";
 
 export default function Header() {
   return (
