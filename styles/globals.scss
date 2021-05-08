@@ -1,0 +1,34 @@
+html {
+  font-size: 10px;
+
+  @media screen and (max-width: $break-large) {
+    font-size: 8.5px;
+  }
+
+  @media screen and (max-width: $break-medium) {
+    font-size: 8px;
+  }
+
+  @media screen and (max-width: $break-tablet) {
+    font-size: 7.5px;
+  }
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
+    Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  background-color: $bg;
+  color: $text;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+* {
+  box-sizing: border-box;
+}
