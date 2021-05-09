@@ -1,13 +1,3 @@
-import monstera from "./images/monstera.jpg";
-import lyrata from "./images/lyrata.jpg";
-import pothos from "./images/pothos.jpg";
-import succulent from "./images/succulent.jpg";
-import olivier from "./images/olivier.jpg";
-import basil from "./images/basil.jpg";
-import mint from "./images/mint.jpg";
-import calathea from "./images/calathea.jpg";
-import cactus from "./images/cactus.jpg";
-
 export const plantList = [
   {
     name: "monstera",
@@ -16,7 +6,7 @@ export const plantList = [
     bestSale: true,
     light: 2,
     water: 3,
-    cover: monstera,
+    cover: "/images/monstera.jpg",
     price: 15,
   },
   {
@@ -25,7 +15,7 @@ export const plantList = [
     id: "2ab",
     light: 3,
     water: 1,
-    cover: lyrata,
+    cover: "/images/lyrata.jpg",
     price: 16,
   },
 
@@ -35,7 +25,7 @@ export const plantList = [
     id: "3sd",
     light: 1,
     water: 2,
-    cover: pothos,
+    cover: "/images/pothos.jpg",
 
     price: 9,
   },
@@ -45,7 +35,7 @@ export const plantList = [
     id: "4kk",
     light: 2,
     water: 3,
-    cover: calathea,
+    cover: "/images/calathea.jpg",
 
     price: 20,
   },
@@ -55,7 +45,7 @@ export const plantList = [
     id: "5pl",
     light: 3,
     water: 1,
-    cover: olivier,
+    cover: "/images/olivier.jpg",
     price: 25,
   },
 
@@ -65,7 +55,7 @@ export const plantList = [
     id: "8fp",
     light: 2,
     water: 1,
-    cover: cactus,
+    cover: "/images/cactus.jpg",
     price: 6,
   },
   {
@@ -75,7 +65,7 @@ export const plantList = [
     bestSale: true,
     light: 2,
     water: 3,
-    cover: basil,
+    cover: "/images/basil.jpg",
     price: 5,
   },
   {
@@ -84,7 +74,7 @@ export const plantList = [
     id: "9vn",
     light: 2,
     water: 1,
-    cover: succulent,
+    cover: "/images/succulent.jpg",
     price: 8,
   },
 
@@ -94,7 +84,7 @@ export const plantList = [
     id: "6uo",
     light: 2,
     water: 2,
-    cover: mint,
+    cover: "/images/mint.jpg",
     price: 4,
   },
 ];

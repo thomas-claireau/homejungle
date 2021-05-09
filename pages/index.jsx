@@ -5,7 +5,7 @@ import styles from "@/styles/Home.module.scss";
 
 import Header from "@/components/Header";
 import Cart from "@/components/Cart";
-import Articles from "@/components/Articles";
+import Plants from "@/components/Plants";
 
 export default function Home() {
   const [cartOpen, setCartOpen] = useState(false); // disable by default
@@ -19,7 +19,7 @@ export default function Home() {
       <Cart isOpen={cartOpen} onClick={handleClick} />
       <section className={styles.content}>
         <Header onClick={handleClick} />
-        <Articles />
+        <Plants />
       </section>
     </main>
   );
