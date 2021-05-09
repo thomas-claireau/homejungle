@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import CrossSVG from "@/public/images/cancel.svg";
 import TrashSVG from "@/public/images/delete.svg";
 import Image from "next/image";
@@ -5,9 +7,15 @@ import Image from "next/image";
 import styles from "@/styles/components/Cart.module.scss";
 
 export default function Cart() {
+  const [open, setOpen] = useState(true);
+
+  const handleClick = () => {
+    return setOpen(!open);
+  };
+
   return (
-    <aside className={styles.cart}>
-      <CrossSVG className={styles.cross} />
+    <aside className={`${styles.cart} ${open ? styles["cart--open"] : ""}`}>
+      <CrossSVG className={styles.cross} onClick={handleClick} />
       <div className={styles.header}>
         <h2>Panier</h2>
         <TrashSVG />
@@ -43,7 +51,7 @@ export default function Cart() {
         </li>
       </ul>
       <div className={styles.total}>
-        Total : <span></span>
+        Total : <span>35€</span>
       </div>
     </aside>
   );

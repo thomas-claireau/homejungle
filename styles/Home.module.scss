@@ -4,5 +4,6 @@
 }
 
 .content {
-  width: 75%;
+  width: 100%;
+  transition: width 0.3s ease-in-out;
 }
