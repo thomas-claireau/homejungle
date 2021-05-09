@@ -4,6 +4,7 @@
   justify-content: space-between;
   align-items: center;
   padding: 3rem 5rem;
+  transition: width 0.3s ease-in-out;
 }
 
 .logo {
@@ -19,6 +20,7 @@
 .svg {
   width: 5rem;
   height: 5rem;
+  cursor: pointer;
 
   path {
     fill: $text;

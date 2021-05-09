@@ -1,4 +1,5 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import PropTypes from "prop-types";
 
 import CrossSVG from "@/public/images/cancel.svg";
 import TrashSVG from "@/public/images/delete.svg";
@@ -6,16 +7,16 @@ import Image from "next/image";
 
 import styles from "@/styles/components/Cart.module.scss";
 
-export default function Cart() {
-  const [open, setOpen] = useState(true);
+export default function Cart({ isOpen, onClick }) {
+  const [open, setOpen] = useState(isOpen);
 
-  const handleClick = () => {
-    return setOpen(!open);
-  };
+  useEffect(() => {
+    setOpen(isOpen);
+  }, [isOpen]);
 
   return (
     <aside className={`${styles.cart} ${open ? styles["cart--open"] : ""}`}>
-      <CrossSVG className={styles.cross} onClick={handleClick} />
+      <CrossSVG className={styles.cross} onClick={onClick} />
       <div className={styles.header}>
         <h2>Panier</h2>
         <TrashSVG />
@@ -56,3 +57,7 @@ export default function Cart() {
     </aside>
   );
 }
+
+Cart.propTypes = {
+  isOpen: PropTypes.bool,
+};
