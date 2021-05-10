@@ -1,2 +1,42 @@
-.Plant {
+.plant {
+  min-width: 30%;
+  position: relative;
+
+  data {
+    position: absolute;
+    top: 0;
+    right: 0;
+    z-index: 1;
+
+    &:before {
+      $sizes: 6rem;
+      content: "";
+      width: $sizes;
+      height: $sizes;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border-radius: $sizes;
+      background-color: $green;
+    }
+
+    span {
+      position: relative;
+      font-size: 1.7rem;
+      font-weight: bold;
+    }
+  }
+
+  figure {
+    width: 100%;
+
+    div {
+      width: 100%;
+
+      img {
+        object-fit: cover;
+      }
+    }
+  }
 }

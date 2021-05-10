@@ -5,10 +5,12 @@ import Range from "./Range";
 
 export default function Plant({ data }) {
   return (
-    <div>
-      <data value={data.price}>{data.price} €</data>
+    <div className={styles.plant}>
+      <data value={data.price}>
+        <span>{data.price} €</span>
+      </data>
       <figure>
-        <Image src={data.cover} width={200} height={200} />
+        <Image src={data.cover} width={350} height={350} />
       </figure>
       <h3>{data.name}</h3>
       <Range number={data.water} type="water" />
