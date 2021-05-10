@@ -12,9 +12,13 @@ export default function Plant({ data }) {
       <figure>
         <Image src={data.cover} width={350} height={350} />
       </figure>
-      <h3>{data.name}</h3>
-      <Range number={data.water} type="water" />
-      <Range number={data.light} type="sun" />
+      <h3>
+        <span>{data.name}</span>
+        <div className={styles.ranges}>
+          <Range number={data.water} type="water" />
+          <Range number={data.light} type="sun" />
+        </div>
+      </h3>
       <button className={styles.atc}>Add to cart</button>
     </div>
   );

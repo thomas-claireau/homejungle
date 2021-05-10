@@ -8,7 +8,7 @@ export default function Header({ onClick }) {
     <header className={styles.header}>
       <div className={styles.logo}>
         <Image src="/images/logo.png" alt="logo" width={50} height={50} />
-        <h1>Home Jungle</h1>
+        <h1>home jungle</h1>
       </div>
       <CartSVG className={styles.svg} onClick={() => onClick()} />
     </header>
