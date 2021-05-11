@@ -3,7 +3,7 @@ import styles from "@/styles/components/Plant.module.scss";
 
 import Range from "./Range";
 
-export default function Plant({ data }) {
+export default function Plant({ data, addToCart }) {
   return (
     <div className={styles.plant}>
       <data value={data.price}>
@@ -19,7 +19,9 @@ export default function Plant({ data }) {
           <Range number={data.light} type="sun" />
         </div>
       </h3>
-      <button className={styles.atc}>Add to cart</button>
+      <button className={styles.atc} onClick={() => addToCart(data)}>
+        Add to cart
+      </button>
     </div>
   );
 }
