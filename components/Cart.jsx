@@ -7,12 +7,17 @@ import Image from "next/image";
 
 import styles from "@/styles/components/Cart.module.scss";
 
-export default function Cart({ isOpen, onClick }) {
+export default function Cart({ isOpen, onClick, plants }) {
   const [open, setOpen] = useState(isOpen);
+  const [plantsInCart, setPlantsInCart] = useState(plants);
 
   useEffect(() => {
     setOpen(isOpen);
   }, [isOpen]);
+
+  useEffect(() => {
+    setPlantsInCart(plants);
+  }, [plants]);
 
   return (
     <aside className={`${styles.cart} ${open ? styles["cart--open"] : ""}`}>
@@ -22,37 +27,28 @@ export default function Cart({ isOpen, onClick }) {
         <TrashSVG />
       </div>
       <ul>
-        <li className={styles.product}>
-          <div className="left">
-            <Image
-              src="/images/cactus.jpg"
-              alt="cactus"
-              width={50}
-              height={50}
-            />
-          </div>
-          <div className={styles.right}>
-            <span className="name">Cactus</span>
-            <span className="price">15€</span>
-          </div>
-        </li>
-        <li className={styles.product}>
-          <div className="left">
-            <Image
-              src="/images/cactus.jpg"
-              alt="cactus"
-              width={50}
-              height={50}
-            />
-          </div>
-          <div className={styles.right}>
-            <span className="name">Cactus</span>
-            <span className="price">15€</span>
-          </div>
-        </li>
+        {plantsInCart &&
+          plantsInCart.map((plantInCart) => {
+            {
+              <li className={styles.product}>
+                <div className="left">
+                  <Image
+                    src={plantInCart.cover}
+                    alt="cactus"
+                    width={50}
+                    height={50}
+                  />
+                </div>
+                <div className={styles.right}>
+                  <span className="name">{plantInCart.name}</span>
+                  <span className="price">{plantInCart.price} €</span>
+                </div>
+              </li>;
+            }
+          })}
       </ul>
       <div className={styles.total}>
-        Total : <span>35€</span>
+        Total : <span></span>
       </div>
     </aside>
   );
