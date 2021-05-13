@@ -65,6 +65,7 @@ export default function Home() {
       <Scrollbar
         style={{ width: "100%", height: "100vh" }}
         noScrollX={true}
+        mobileNative={true}
         className={styles.content}
       >
         <Header
