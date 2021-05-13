@@ -1,6 +1,18 @@
 .main {
   display: flex;
   justify-content: space-around;
+  background-color: var(--bg);
+  color: var(--text);
+}
+
+.dark {
+  --bg: #{$bg};
+  --text: #{$text};
+}
+
+.light {
+  --bg: #{$text};
+  --text: #{$bg};
 }
 
 .content {

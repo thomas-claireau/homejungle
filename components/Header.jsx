@@ -3,8 +3,12 @@ import styles from "@/styles/components/Header.module.scss";
 
 import CartSVG from "@/public/images/shopping-cart.svg";
 
-export default function Header({ cart, onClick }) {
+export default function Header({ cart, onClick, theme, setTheme }) {
   const cartLength = cart.length;
+
+  const toggleTheme = () => {
+    return theme == "dark" ? "light" : "dark";
+  };
 
   return (
     <header className={styles.header}>
@@ -13,11 +17,15 @@ export default function Header({ cart, onClick }) {
         <h1>home jungle</h1>
       </div>
       <div className={styles["cart-container"]}>
+        <span
+          className={`${styles["toggle-theme"]} ${styles[theme]}`}
+          onClick={() => setTheme(toggleTheme(theme))}
+        ></span>
         <CartSVG
           className={`${styles.svg} ${!cartLength ? styles.disallow : ""}`}
           onClick={() => (cartLength ? onClick() : false)}
         />
-        {cartLength > 0 && <span>{cartLength}</span>}
+        {cartLength > 0 && <span className={styles.count}>{cartLength}</span>}
       </div>
     </header>
   );

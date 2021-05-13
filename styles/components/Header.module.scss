@@ -22,11 +22,13 @@
   width: 5rem;
   height: 5rem;
   position: relative;
+  display: flex;
   cursor: pointer;
 
-  span {
+  .count {
     $sizes: 45%;
     width: $sizes;
+    min-width: $sizes;
     height: $sizes;
     display: flex;
     justify-content: center;
@@ -36,8 +38,39 @@
     right: -0.5rem;
     border-radius: 100%;
     background-color: $green;
-    color: $text;
+    color: var(--text);
     font-size: 1.4rem;
+  }
+
+  .toggle-theme {
+    $sizes: 5rem;
+    width: $sizes;
+    height: 3rem;
+    display: flex;
+    position: absolute;
+    top: 50%;
+    left: -10rem;
+    transform: translateY(-50%);
+    border: 1px solid var(--text);
+    border-radius: $sizes;
+
+    &:before {
+      $sizes: 2.5rem;
+      content: "";
+      width: $sizes;
+      height: 85%;
+      position: absolute;
+      top: 50%;
+      left: 2.1rem;
+      border-radius: $sizes;
+      background-color: $green;
+      transform: translateY(-50%);
+      transition: all 0.2s ease-in-out;
+    }
+  }
+
+  .light:before {
+    left: 0.2rem;
   }
 }
 
@@ -50,6 +83,6 @@
   height: 100%;
 
   path {
-    fill: $text;
+    fill: var(--text);
   }
 }

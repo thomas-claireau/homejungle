@@ -57,7 +57,7 @@
   cursor: pointer;
 
   path {
-    fill: $text;
+    fill: var(--text);
   }
 }
 
@@ -76,7 +76,7 @@
     cursor: pointer;
 
     path {
-      fill: $text;
+      fill: var(--text);
     }
   }
 }

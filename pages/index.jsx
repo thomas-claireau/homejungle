@@ -6,6 +6,7 @@ import Cart from "@/components/Cart";
 import Plants from "@/components/Plants";
 
 export default function Home() {
+  const [theme, setTheme] = useState("dark"); // dark theme by default
   const [cartOpen, setCartOpen] = useState(false); // disable by default
   const [cart, setCart] = useState([]);
 
@@ -40,7 +41,7 @@ export default function Home() {
   };
 
   return (
-    <main className={styles.main}>
+    <main className={`${styles.main} ${styles[theme]}`}>
       <Cart
         isOpen={cartOpen}
         onClick={handleClick}
@@ -49,7 +50,12 @@ export default function Home() {
         deleteFromCart={deleteFromCart}
       />
       <section className={styles.content}>
-        <Header cart={cart} onClick={handleClick} />
+        <Header
+          cart={cart}
+          onClick={handleClick}
+          theme={theme}
+          setTheme={setTheme}
+        />
         <Plants addToCart={addToCart} setCartOpen={handleClick} />
       </section>
     </main>
