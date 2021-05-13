@@ -4,4 +4,8 @@
   gap: 3rem;
   flex-wrap: wrap;
   margin-top: 6rem;
+
+  @media screen and (max-width: $break-small) {
+    width: 96%;
+  }
 }
