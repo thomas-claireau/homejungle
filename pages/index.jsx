@@ -10,6 +10,8 @@ import Plants from "@/components/Plants";
 import LinkedinSVG from "@/public/images/linkedin.svg";
 import GithubSVG from "@/public/images/github.svg";
 
+let mounted = false;
+
 export default function Home() {
   const [theme, setTheme] = useState(""); // dark theme by default
   const [cartOpen, setCartOpen] = useState(false); // disable by default
@@ -20,6 +22,8 @@ export default function Home() {
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
     setTheme(localStorage.getItem("theme") || "dark");
+
+    mounted = true;
   }, []);
 
   const handleClick = (status = !cartOpen) => {
@@ -62,37 +66,39 @@ export default function Home() {
         clearCart={clearCart}
         deleteFromCart={deleteFromCart}
       />
-      <Scrollbar
-        style={{ width: "100%", height: "100vh" }}
-        noScrollX={true}
-        mobileNative={true}
-        className={styles.content}
-      >
-        <Header
-          cart={cart}
-          onClick={handleClick}
-          theme={theme}
-          setTheme={setLsTheme}
-        />
-        <Plants addToCart={addToCart} setCartOpen={handleClick} />
-        <footer>
-          <div>© {date.getFullYear()} - Thomas Claireau</div>
-          <div>
-            <a
-              href="https://github.com/thomas-claireau/homejungle"
-              target="_blank"
-            >
-              <GithubSVG />
-            </a>
-            <a
-              href="https://www.linkedin.com/in/thomas-claireau/"
-              target="_blank"
-            >
-              <LinkedinSVG />
-            </a>
-          </div>
-        </footer>
-      </Scrollbar>
+      {mounted && (
+        <Scrollbar
+          style={{ width: "100%", height: "100vh" }}
+          noScrollX={true}
+          mobileNative={true}
+          className={styles.content}
+        >
+          <Header
+            cart={cart}
+            onClick={handleClick}
+            theme={theme}
+            setTheme={setLsTheme}
+          />
+          <Plants addToCart={addToCart} setCartOpen={handleClick} />
+          <footer>
+            <div>© {date.getFullYear()} - Thomas Claireau</div>
+            <div>
+              <a
+                href="https://github.com/thomas-claireau/homejungle"
+                target="_blank"
+              >
+                <GithubSVG />
+              </a>
+              <a
+                href="https://www.linkedin.com/in/thomas-claireau/"
+                target="_blank"
+              >
+                <LinkedinSVG />
+              </a>
+            </div>
+          </footer>
+        </Scrollbar>
+      )}
     </main>
   );
 }

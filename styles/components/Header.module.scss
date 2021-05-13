@@ -15,6 +15,14 @@
   > h1 {
     margin: 0 0 0 2rem;
     font-size: 4rem;
+
+    @media screen and (max-width: $break-tablet) {
+      font-size: 3.5rem;
+    }
+
+    @media screen and (max-width: $break-small) {
+      font-size: 3rem;
+    }
   }
 }
 
