@@ -21,9 +21,19 @@ export default function Home() {
     setCart([...cart, plant]);
   };
 
+  const clearCart = () => {
+    setCart([]);
+    setCartOpen(false);
+  };
+
   return (
     <main className={styles.main}>
-      <Cart isOpen={cartOpen} onClick={handleClick} plants={cart} />
+      <Cart
+        isOpen={cartOpen}
+        onClick={handleClick}
+        plants={cart}
+        clearCart={clearCart}
+      />
       <section className={styles.content}>
         <Header cart={cart} onClick={handleClick} />
         <Plants addToCart={addToCart} setCartOpen={handleClick} />

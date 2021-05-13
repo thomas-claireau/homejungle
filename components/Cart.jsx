@@ -7,7 +7,7 @@ import Image from "next/image";
 
 import styles from "@/styles/components/Cart.module.scss";
 
-export default function Cart({ isOpen, onClick, plants }) {
+export default function Cart({ isOpen, onClick, plants, clearCart }) {
   const [open, setOpen] = useState(isOpen);
 
   useEffect(() => {
@@ -19,7 +19,7 @@ export default function Cart({ isOpen, onClick, plants }) {
       <CrossSVG className={styles.cross} onClick={() => onClick(false)} />
       <div className={styles.header}>
         <h2>Panier</h2>
-        <TrashSVG />
+        <TrashSVG onClick={clearCart} />
       </div>
       <ul>
         {plants &&
