@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
+
 import styles from "@/styles/Home.module.scss";
 
+import Scrollbar from "react-scrollbars-custom";
 import Header from "@/components/Header";
 import Cart from "@/components/Cart";
 import Plants from "@/components/Plants";
@@ -60,7 +62,11 @@ export default function Home() {
         clearCart={clearCart}
         deleteFromCart={deleteFromCart}
       />
-      <section className={styles.content}>
+      <Scrollbar
+        style={{ width: "100%", height: "100vh" }}
+        noScrollX={true}
+        className={styles.content}
+      >
         <Header
           cart={cart}
           onClick={handleClick}
@@ -85,7 +91,7 @@ export default function Home() {
             </a>
           </div>
         </footer>
-      </section>
+      </Scrollbar>
     </main>
   );
 }
