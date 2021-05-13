@@ -36,6 +36,10 @@ a {
 // custom scrollbar
 .ScrollbarsCustom-Content {
   padding-bottom: 3rem !important;
+
+  @media screen and (max-width: $break-small) {
+    padding-bottom: 6rem !important;
+  }
 }
 
 .ScrollbarsCustom-TrackY {
