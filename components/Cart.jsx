@@ -22,21 +22,26 @@ export default function Cart({ isOpen, onClick, plants, clearCart }) {
         <TrashSVG onClick={clearCart} />
       </div>
       <ul>
-        {plants &&
-          plants.map((plant, index) => {
+        {plants.length > 0 &&
+          Object.entries(groupByKey(plants, "id")).map((plant) => {
+            const index = plant[0];
+            plant = plant[1];
+
             return (
               <li key={index} className={styles.product}>
                 <div className="left">
                   <Image
-                    src={plant.cover}
+                    src={plant[0].cover}
                     alt="cactus"
                     width={50}
                     height={50}
                   />
                 </div>
                 <div className={styles.right}>
-                  <span className="name">{plant.name}</span>
-                  <span className="price">{plant.price} €</span>
+                  <span className="name">
+                    {plant[0].name} x{plant.length}
+                  </span>
+                  <span className="price">{plant[0].price} €</span>
                 </div>
               </li>
             );
@@ -52,3 +57,13 @@ export default function Cart({ isOpen, onClick, plants, clearCart }) {
 Cart.propTypes = {
   isOpen: PropTypes.bool,
 };
+
+function groupByKey(list, key) {
+  return list.reduce(
+    (hash, obj) => ({
+      ...hash,
+      [obj[key]]: (hash[obj[key]] || []).concat(obj),
+    }),
+    {}
+  );
+}
