@@ -5,10 +5,15 @@ import Header from "@/components/Header";
 import Cart from "@/components/Cart";
 import Plants from "@/components/Plants";
 
+import LinkedinSVG from "@/public/images/linkedin.svg";
+import GithubSVG from "@/public/images/github.svg";
+
 export default function Home() {
   const [theme, setTheme] = useState(""); // dark theme by default
   const [cartOpen, setCartOpen] = useState(false); // disable by default
   const [cart, setCart] = useState([]);
+
+  const date = new Date();
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
@@ -63,6 +68,23 @@ export default function Home() {
           setTheme={setLsTheme}
         />
         <Plants addToCart={addToCart} setCartOpen={handleClick} />
+        <footer>
+          <div>© {date.getFullYear()} - Thomas Claireau</div>
+          <div>
+            <a
+              href="https://github.com/thomas-claireau/homejungle"
+              target="_blank"
+            >
+              <GithubSVG />
+            </a>
+            <a
+              href="https://www.linkedin.com/in/thomas-claireau/"
+              target="_blank"
+            >
+              <LinkedinSVG />
+            </a>
+          </div>
+        </footer>
       </section>
     </main>
   );
