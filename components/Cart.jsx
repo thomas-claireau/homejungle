@@ -20,6 +20,8 @@ export default function Cart({
     setOpen(isOpen);
   }, [isOpen]);
 
+  const prices = plants && plants.map((item) => item.price);
+
   return (
     <aside className={`${styles.cart} ${open ? styles["cart--open"] : ""}`}>
       <CrossSVG className={styles.cross} onClick={() => onClick(false)} />
@@ -62,7 +64,7 @@ export default function Cart({
           })}
       </ul>
       <div className={styles.total}>
-        Total : <span></span>
+        Total : <span>{prices.reduce(sum, 0) || 0}€</span>
       </div>
     </aside>
   );
@@ -80,4 +82,8 @@ function groupByKey(list, key) {
     }),
     {}
   );
+}
+
+function sum(acc, val) {
+  return acc + val;
 }
