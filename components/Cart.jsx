@@ -71,7 +71,11 @@ export default function Cart({
 }
 
 Cart.propTypes = {
-  isOpen: PropTypes.bool,
+  isOpen: PropTypes.bool.isRequired,
+  onClick: PropTypes.func.isRequired,
+  plants: PropTypes.array.isRequired,
+  clearCart: PropTypes.func.isRequired,
+  deleteFromCart: PropTypes.func.isRequired,
 };
 
 function groupByKey(list, key) {

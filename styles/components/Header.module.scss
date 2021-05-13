@@ -61,12 +61,15 @@
       height: 85%;
       position: absolute;
       top: 50%;
-      left: 2.1rem;
       border-radius: $sizes;
       background-color: $green;
       transform: translateY(-50%);
       transition: all 0.2s ease-in-out;
     }
+  }
+
+  .dark:before {
+    left: 2.1rem;
   }
 
   .light:before {

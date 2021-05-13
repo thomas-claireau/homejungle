@@ -6,16 +6,22 @@ import Cart from "@/components/Cart";
 import Plants from "@/components/Plants";
 
 export default function Home() {
-  const [theme, setTheme] = useState("dark"); // dark theme by default
+  const [theme, setTheme] = useState(""); // dark theme by default
   const [cartOpen, setCartOpen] = useState(false); // disable by default
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
     setCart(JSON.parse(localStorage.getItem("cart")) || []);
+    setTheme(localStorage.getItem("theme") || "dark");
   }, []);
 
   const handleClick = (status = !cartOpen) => {
     setCartOpen(status);
+  };
+
+  const setLsTheme = (theme) => {
+    setTheme(theme);
+    localStorage.setItem("theme", theme);
   };
 
   const setLsCart = (array) => {
@@ -54,7 +60,7 @@ export default function Home() {
           cart={cart}
           onClick={handleClick}
           theme={theme}
-          setTheme={setTheme}
+          setTheme={setLsTheme}
         />
         <Plants addToCart={addToCart} setCartOpen={handleClick} />
       </section>
