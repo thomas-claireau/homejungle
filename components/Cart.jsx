@@ -16,7 +16,7 @@ export default function Cart({ isOpen, onClick, plants }) {
 
   return (
     <aside className={`${styles.cart} ${open ? styles["cart--open"] : ""}`}>
-      <CrossSVG className={styles.cross} onClick={onClick} />
+      <CrossSVG className={styles.cross} onClick={() => onClick(false)} />
       <div className={styles.header}>
         <h2>Panier</h2>
         <TrashSVG />

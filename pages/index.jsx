@@ -13,8 +13,8 @@ export default function Home() {
     setCart(localStorage.getItem("cart") || []);
   }, []);
 
-  const handleClick = () => {
-    setCartOpen(!cartOpen);
+  const handleClick = (status = !cartOpen) => {
+    setCartOpen(status);
   };
 
   const addToCart = (plant) => {
@@ -26,7 +26,7 @@ export default function Home() {
       <Cart isOpen={cartOpen} onClick={handleClick} plants={cart} />
       <section className={styles.content}>
         <Header cart={cart} onClick={handleClick} />
-        <Plants addToCart={addToCart} />
+        <Plants addToCart={addToCart} setCartOpen={handleClick} />
       </section>
     </main>
   );

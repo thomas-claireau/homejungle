@@ -3,11 +3,16 @@ import Plant from "./Plant";
 
 import styles from "@/styles/components/Plants.module.scss";
 
-export default function Plants({ addToCart }) {
+export default function Plants({ addToCart, setCartOpen }) {
   return (
     <section className={styles.plants}>
       {plantList.map((plant, index) => (
-        <Plant key={index} data={plant} addToCart={addToCart} />
+        <Plant
+          key={index}
+          data={plant}
+          addToCart={addToCart}
+          setCartOpen={setCartOpen}
+        />
       ))}
     </section>
   );
