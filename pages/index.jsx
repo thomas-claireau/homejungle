@@ -1,5 +1,3 @@
-import Head from "next/head";
-import Image from "next/image";
 import { useState, useEffect } from "react";
 import styles from "@/styles/Home.module.scss";
 
@@ -27,7 +25,7 @@ export default function Home() {
     <main className={styles.main}>
       <Cart isOpen={cartOpen} onClick={handleClick} plants={cart} />
       <section className={styles.content}>
-        <Header onClick={handleClick} />
+        <Header cart={cart} onClick={handleClick} />
         <Plants addToCart={addToCart} />
       </section>
     </main>
