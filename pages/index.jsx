@@ -26,6 +26,14 @@ export default function Home() {
     setCartOpen(false);
   };
 
+  const deleteFromCart = (id) => {
+    const filterCart = cart.filter((item) => item.id !== id);
+
+    setCart(filterCart);
+
+    if (!filterCart.length) setCartOpen(false);
+  };
+
   return (
     <main className={styles.main}>
       <Cart
@@ -33,6 +41,7 @@ export default function Home() {
         onClick={handleClick}
         plants={cart}
         clearCart={clearCart}
+        deleteFromCart={deleteFromCart}
       />
       <section className={styles.content}>
         <Header cart={cart} onClick={handleClick} />

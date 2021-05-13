@@ -7,7 +7,13 @@ import Image from "next/image";
 
 import styles from "@/styles/components/Cart.module.scss";
 
-export default function Cart({ isOpen, onClick, plants, clearCart }) {
+export default function Cart({
+  isOpen,
+  onClick,
+  plants,
+  clearCart,
+  deleteFromCart,
+}) {
   const [open, setOpen] = useState(isOpen);
 
   useEffect(() => {
@@ -38,9 +44,17 @@ export default function Cart({ isOpen, onClick, plants, clearCart }) {
                   />
                 </div>
                 <div className={styles.right}>
-                  <span className="name">
-                    {plant[0].name} x{plant.length}
-                  </span>
+                  <div>
+                    <span className={styles.name}>
+                      {plant[0].name} x{plant.length}
+                    </span>
+                    <span
+                      className={styles.delete}
+                      onClick={() => deleteFromCart(plant[0].id)}
+                    >
+                      Supprimer
+                    </span>
+                  </div>
                   <span className="price">{plant[0].price} €</span>
                 </div>
               </li>
