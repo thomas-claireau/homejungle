@@ -10,26 +10,31 @@ export default function Home() {
   const [cart, setCart] = useState([]);
 
   useEffect(() => {
-    setCart(localStorage.getItem("cart") || []);
+    setCart(JSON.parse(localStorage.getItem("cart")) || []);
   }, []);
 
   const handleClick = (status = !cartOpen) => {
     setCartOpen(status);
   };
 
+  const setLsCart = (array) => {
+    setCart(array);
+    localStorage.setItem("cart", JSON.stringify(array));
+  };
+
   const addToCart = (plant) => {
-    setCart([...cart, plant]);
+    setLsCart([...cart, plant]);
   };
 
   const clearCart = () => {
-    setCart([]);
+    setLsCart([]);
     setCartOpen(false);
   };
 
   const deleteFromCart = (id) => {
     const filterCart = cart.filter((item) => item.id !== id);
 
-    setCart(filterCart);
+    setLsCart(filterCart);
 
     if (!filterCart.length) setCartOpen(false);
   };
