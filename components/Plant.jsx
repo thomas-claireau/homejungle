@@ -1,4 +1,6 @@
 import Image from "next/image";
+import PropTypes from "prop-types";
+
 import styles from "@/styles/components/Plant.module.scss";
 
 import Range from "./Range";
@@ -31,3 +33,9 @@ export default function Plant({ data, addToCart, setCartOpen }) {
     </div>
   );
 }
+
+Plant.propTypes = {
+  data: PropTypes.object.isRequired,
+  addToCart: PropTypes.func.isRequired,
+  setCartOpen: PropTypes.func.isRequired,
+};

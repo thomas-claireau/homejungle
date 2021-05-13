@@ -1,4 +1,6 @@
 import Image from "next/image";
+import PropTypes from "prop-types";
+
 import styles from "@/styles/components/Header.module.scss";
 
 import CartSVG from "@/public/images/shopping-cart.svg";
@@ -30,3 +32,10 @@ export default function Header({ cart, onClick, theme, setTheme }) {
     </header>
   );
 }
+
+Header.propTypes = {
+  cart: PropTypes.array.isRequired,
+  onClick: PropTypes.func.isRequired,
+  theme: PropTypes.string.isRequired,
+  setTheme: PropTypes.func.isRequired,
+};

@@ -1,3 +1,5 @@
+import PropTypes from "prop-types";
+
 import { plantList } from "../public/data";
 import Plant from "./Plant";
 
@@ -17,3 +19,8 @@ export default function Plants({ addToCart, setCartOpen }) {
     </section>
   );
 }
+
+Plants.propTypes = {
+  addToCart: PropTypes.func.isRequired,
+  setCartOpen: PropTypes.func.isRequired,
+};
